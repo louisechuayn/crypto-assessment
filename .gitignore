@@ -1,0 +1,13 @@
+# Ignore all TSV and compressed TSVs anywhere
+*.tsv
+*.tsv.gz
+
+# Ignore everything in data/ except CSVs
+data/*
+!data/*.csv
+
+# General Python ignores
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
