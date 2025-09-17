@@ -14,81 +14,95 @@ This notebook analyses the transaction history of a specific Ethereum whale wall
 
 This notebook analyses Dogecoin's market data, including price and volume. It fetches data from the CoinGecko API for a specific date range. The data is cleaned and visualized using a time series plot that displays both price and volume, with annotations for key events.
 
+## Repository Structure
+├── data/               # Raw and processed datasets
+├── images/             # Screenshots of visualisations
+├── notebooks/          # Jupyter notebooks for analysis
+│   └── task_one.ipynb
+│   └── task_two.ipynb
+├── .env                # Create this
+├── requirements.txt    # Dependencies
+└── README.md           # Project overview
+
+## Requirements
+To run the notebooks, you need to install the following Python libraries. It is recommended to use the provided `requirements.txt` file to set up a virtual environment.
+
+```
+requests==2.32.5
+pandas==2.3.2
+numpy==2.3.3
+python-dotenv==1.1.1
+networkx==3.5
+matplotlib==3.10.6
+```
+
+You can install these dependencies by running:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Installation
 
 ### 1. Clone the repository
+```bash
 git clone https://github.com/louisechuayn/crypto-assessment.git
-cd dogecoin-forensics
+```
 
-### 2. Set up environment
-Using pip:
+### 2. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-Or using conda:
-conda create -n doge-analysis python=3.12
-conda activate doge-analysis
-pip install -r requirements.txt
+### Set up API keys
 
-## Usage
-Run task_one.ipynb
-Run task_two.ipynb
+Task One: Create a `.env` file in the project directory and add your Etherscan API key as `ETHERSCAN_TOKEN=<your_api_key>`. This is necessary to fetch the transaction data.
+
+```bash
+echo "ETHERSCAN_TOKEN=<your_api_key>" > .env
+```
+
+Task Two: The CoinGecko API does not require a key for this specific request.
+
+### Run the notebooks
+
+Open `task_one.ipynb` and `task_two.ipynb` in a Jupyter environment.
+
+Run the cells in each notebook to see the data fetching, processing, and visualizations.
+
+## Data Sources
+
+Etherscan API: Used in `task_one.ipynb` to retrieve Ethereum blockchain data.
+
+CoinGecko API: Used in `task_two.ipynb` to retrieve cryptocurrency market data.
 
 ## Results
 
+### Task One: Wallet Transactions
+The 20 most recent transactions involving a famous ETH whale wallet was plotted as a bi-directional, multi-edged weighted, using nodes to represent wallets, directed edges to represent transactions, and edge weights to represent size of transaction.
 
-### Task one
+<img src="images/image_1.png" alt="ETH Wallet Transaction Graph" width="500"/>
 
-![ETH Wallet Transaction Graph](images/image_1.png)
+### Task Two: Dogecoin Forensics Analysis
 
-![Dogecoin Hourly Price and Volume](images/image_2.1.png)
+Dogecoin hourly price and volume data was plotted for a 90-day window.
 
-![Dogecoin Hourly Volume and On-chain Transaction Flow](images/image_2.2.png)
+<img src="images/image_2.1.png" alt="Dogecoin Hourly Price and Volume" width="500"/>
 
-![Dogecoin Hourly Volume and Total CDD](images/image_2.3.png)
+Zooming into a week of interest, data was obtained for on-chain transactions and the hourly volume and total output in transactions was plotted.
 
-![1_Frequency Distribution of Transaction Values](images/image_2.4.png)
+<img src="images/image_2.2.png" alt="Dogecoin Hourly Volume and On-chain Transaction Flow" width="500"/>
 
-![CDD vs Trnansaction Output Value](images/image_2.5.png)
+The relationship between hourly volume and CDD (Coins Days Destroyed) was also investigated.
 
-![2_Frequency Distribution of Transaction Values](images/image_2.6.png)
+<img src="images/image_2.3.png" alt="Dogecoin Hourly Volume and Total CDD" width="500"/>
 
+Zooming further inwo 2 shorter periods of interest to investigate if illicit activity (possible pump and dump) could have caused the volume spikes. A histogram of the frequency of transaction output values was plotted to better understand if these spikes were caused by many small transactions or one large transaction.
 
-
-
-### Macro-Level Analysis
-Volume vs. Output Total (USD): Highlighted spikes around 11 Nov 4pm and 12 Nov 3–5pm.
-CDD Analysis: Highest CDD spike observed on 13 Nov 4am, following unusual outputs.
-
-📸 Example Screenshot:
-(insert image here — e.g. line + bar plot showing suspicious activity window)
-
-### Micro-Level Analysis
-Transaction-level data in suspicious windows revealed bursts of unusually high-value transfers.
-Some spikes corresponded to old wallets moving DOGE (high CDD), consistent with manipulation risk.
-📸 Example Screenshot:
-(insert image here — e.g. histogram of transaction sizes or minute-level activity)
-
-
-## Repository Structure
-├── data/               # Raw and processed datasets
-├── notebooks/          # Jupyter notebooks for analysis
-│   └── analysis.ipynb
-├── src/                # Helper functions (data loading, plotting)
-├── tests/              # Unit tests for core functions
-├── requirements.txt    # Dependencies
-└── README.md           # Project overview
+<img src="images/image_2.4.png" alt="Frequency Distribution of Transaction Values 1" width="500"/>
+<img src="images/image_2.5.png" alt="CDD vs Transaction Output Value" width="500"/>
+<img src="images/image_2.6.png" alt="Frequency Distribution of Transaction Values 2" width="500"/>
 
 
 
-## Deliverables
- Source code and notebooks
- Documentation (this README + inline notebook explanations)
- Example results with figures
- Reproducibility instructions
-
-
-📌 Next Steps
-Extend analysis to other tokens (BTC, ETH)
-Incorporate wallet clustering heuristics to track repeated suspicious actors
-Automate anomaly detection with statistical thresholds or ML models
