@@ -1,6 +1,6 @@
 # Crypto Data Analysis Project
 
-This repository contains two Jupyter notebooks that analyze different aspects of the cryptocurrency market using public APIs.
+This repository contains two Jupyter notebooks that analyse different aspects of the cryptocurrency market using public APIs.
 
 ## Project Overview
 
@@ -8,11 +8,11 @@ This project consists of two separate analyses:
 
 ### Task One: Wallet Transactions
 
-This notebook analyses the transaction history of a specific Ethereum whale wallet. It uses the Etherscan API (token required) to fetch up to 10,000 transactions for the wallet. The data is then processed and visualized as a bi-directional weighted graph of the 20 most recent transactions, with wallets as nodes and transactions as arrows. The thickness of the arrows is weighted by the transaction value.
+This notebook analyses the transaction history of a specific Ethereum whale wallet. It uses the Etherscan API (token required) to fetch up to 10,000 transactions for the wallet. The data is then processed and visualised as a bi-directional weighted graph of the 20 most recent transactions, with wallets as nodes and transactions as arrows. The thickness of the arrows is weighted by the transaction value.
 
 ### Task Two: Dogecoin Market Analysis
 
-This notebook analyses Dogecoin's market data, including price and volume. It fetches data from the CoinGecko API for a specific date range. The data is cleaned and visualized using a time series plot that displays both price and volume, with annotations for key events.
+This notebook analyses Dogecoin's market data, including price and volume. It fetches data from the CoinGecko API for a specific date range. The data is cleaned and visualised using a time series plot that displays both price and volume, with annotations for key events.
 
 ## Repository Structure
 ```
