@@ -15,6 +15,7 @@ This notebook analyses the transaction history of a specific Ethereum whale wall
 This notebook analyses Dogecoin's market data, including price and volume. It fetches data from the CoinGecko API for a specific date range. The data is cleaned and visualized using a time series plot that displays both price and volume, with annotations for key events.
 
 ## Repository Structure
+```
 ├── data/               # Raw and processed datasets
 ├── images/             # Screenshots of visualisations
 ├── notebooks/          # Jupyter notebooks for analysis
@@ -22,7 +23,8 @@ This notebook analyses Dogecoin's market data, including price and volume. It fe
 │   └── task_two.ipynb
 ├── .env                # Create this
 ├── requirements.txt    # Dependencies
-└── README.md           # Project overview
+└── README.md           # This file
+```
 
 ## Requirements
 To run the notebooks, you need to install the following Python libraries. It is recommended to use the provided `requirements.txt` file to set up a virtual environment.
@@ -45,8 +47,10 @@ pip install -r requirements.txt
 ## Installation
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/louisechuayn/crypto-assessment.git
+cd crypto-assessment
 ```
 
 ### 2. Install dependencies
@@ -69,7 +73,9 @@ Task Two: The CoinGecko API does not require a key for this specific request.
 
 Open `task_one.ipynb` and `task_two.ipynb` in a Jupyter environment.
 
-Run the cells in each notebook to see the data fetching, processing, and visualizations.
+Run the cells in each notebook to see the data fetching, processing, and visualisations.
+
+**Note: There are some code chunks in `task_two.ipynb` that fetch data using APIs and might be slow to run. An alternative would be to skip that chunk and run the following chunk that reads that data in from an existing .csv file.**
 
 ## Data Sources
 
@@ -103,6 +109,4 @@ Zooming further inwo 2 shorter periods of interest to investigate if illicit act
 <img src="images/image_2.4.png" alt="Frequency Distribution of Transaction Values 1" width="500"/>
 <img src="images/image_2.5.png" alt="CDD vs Transaction Output Value" width="500"/>
 <img src="images/image_2.6.png" alt="Frequency Distribution of Transaction Values 2" width="500"/>
-
-
 
